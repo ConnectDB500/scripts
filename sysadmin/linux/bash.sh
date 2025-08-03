@@ -1,0 +1,64 @@
+Comandos que servem para registrar sessões de terminal, ou seja, gravar tudo o que foi
+digitado e exibido na tela, incluindo comandos e saidas. Isso é útil para auditoria, 
+estudo, documentação ou rastramento de erros.
+
+1. Comando Linux:   script session.log
+O que faz: 
+- Inicia uma gravação da sessão do terminal atual no arquivo "session.log".
+- Tudo o que for digitado e exibido no terminal será gravado.
+Para parar a gravação, use:   exit 
+
+Automatizar o script no Linux ou o Start-Transcript no PowerShell para iniciar toda vez que abrir
+o terminal.
+
+1. Automatizar script no Linux
+O comando script grava a sessão do terminal em um arquivo .log. Para automatizar isso, basta iniciar
+o script automaticamente quando abrir o terminal.
+a) Abra o terminal e digite:
+.bash
+nano -/.bashrc
+
+b) Adicione ao final:
+# Iniciar gravação da sessão automaticamente
+if [[ -z "$UNDER_SCRIPT" ]]; then
+  export UNDER_SCRIPT=1
+  script -q ~/session_$(date +%Y-%d_%H-%M-%S).log
+  exit
+Salve com Ctrl + O, depois Enter, e saia com Ctrl + X.
+Usando a variavel UNDER_SCRIPT impede loops infinitos.
+
+    Analise de Logs
+  Logs são registros automáticos de eventos que ocorrem em um sistema, aplicação, rede
+ou dispositivo. Eles mostram o que aconteceu, quem fez e como o sistema respondeu.
+
+  O que procurar nos Logs
+Falhas de login -         ataques de força bruta, usuários inválidos
+Erros de serviços -       quando e por que um serviço caiu
+Erros de disco/memória -  sinais de falha de hardware
+Logs de rede -            portas abertas, tráfego incomum
+Atualizações -            instalações, patches aplicados, reinicializações
+
+  Linux: comandos nativos para analisar Logs
+cat -             exibe todo o conteúdo do Logs
+less/more -       navega pelos logs página por página
+tail -            mostras as ultimas linhas do logs
+tail -f -         segue o log em tempo real
+grep -            filtra o conteúdo por palavra-chave
+awk, cut, sed -   manipulam e formatam os dados dos logs
+
+  Arquivos de Logs no Linux
+/var/log/syslog -             logs gerais do systema
+/var/log/auth.log -           acesso via sudo, logins e SSH
+/var/log/dmesg -              mensagens do kernel e inicialização
+/var/log/nginx/access.log -   acesso ao servidor web Nginx
+
+Exemplos:
+- Ver os últimos 50 eventos do syslog
+tail -n 50 /var/log/syslog
+
+- Procurar por erro no syslog
+grep "error" /var/log/syslog
+
+- Filtrar logs por hora especifica
+grep "May 17 10:" /var/log/syslog
+

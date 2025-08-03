@@ -1,0 +1,16 @@
+# Aplicar os recursos (.bash)
+
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+kubectl apply -f ingress.yaml
+
+# Testar localmente (.bash)
+
+# Execute
+minikube tunnel
+
+# Adicione  ao seu /etc/hosts
+127.0.0.1 minhaapp.local 
+
+# Acesse no navegador
+http://minhaapp.local

@@ -1,0 +1,73 @@
+Managing Services in Linux Bash Commands:
+[
+  sudo <command>:  executes a command with administrator rights
+ls <directory>:  lists the files in a directory
+mv <old_name> <new_name>:    moves or renames a file from the old name to the new name
+tail <file>:     shows the last lines of a file
+cat <file>:      prints the whole contents of a file
+grep <pattern> <file>:       filters the text of a file according to the pattern
+less <file>:     lets you browse a file
+Additionally, you can combine these commands using the | sign. For example:
+sudo cat /var/log/syslog | grep error | tail
+]
+
+# Listing system services
+sudo service --status-all
+
+
+# Stopping and starting services
+sudo service rsyslog status
+
+logger This is a test log entry
+
+sudo tail -1 /var/log/syslog
+
+sudo service rsyslog stop
+
+sudo service rsyslog status
+
+sudo tail -5 /var/log/syslog
+
+logger This is another test log entry
+
+sudo tail /var/log/syslog
+
+sudo service rsyslog start
+
+sudo service rsyslog status
+
+logger This is another test log entry
+
+sudo tail /var/log/syslog
+ 
+
+# Stopping and starting services
+sudo service --status-all
+
+sudo service cups status
+
+sudo ls -l /etc/cups
+
+sudo mv /etc/cups/cupsd.conf.old /etc/cups/cupsd.conf
+
+sudo ls -l /etc/cups
+
+sudo service cups start
+
+sudo service cups status
+
+# Restarting services
+sudo ls -l /var/log/cups
+
+sudo nano /etc/cups/cupsd.conf
+
+# In one of the first lines of the file you'll see there's a line that says "LogLevel 
+# warn". We want to replace warn with debug:
+
+sudo service cups restart
+
+
+# Reloading Services
+sudo service cups reload
+
+sudo service cups status

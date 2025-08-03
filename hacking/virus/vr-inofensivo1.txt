@@ -1,0 +1,7 @@
+Apagar icones da barra de tarefas
+
+Ocultar icones da barra de tarefas
+
+Matar um processo
+
+Matar o processo da barra de tarefas

@@ -1,0 +1,31 @@
+Qwiklab: Managing Services in Windows PowerShell commands: 
+
+Get-Service
+
+Get-Service wisvc
+
+Get-Service wisvc | Format-List *
+
+Start-Service wisvc
+
+Get-service wisvc
+
+Stop-Service wisvc
+
+Get-Service wisvc
+
+Get-Service ScardSvr | Format-List *
+
+Start-Service ScardSvr
+
+Set-Service ScardSvr -StartupType Manual
+
+Start-Service ScardSvr -StartupType Manual
+
+Get-Service ScardSvr
+
+Install-WindowsFeature Web-WebServer, Web-Mtmg-Tools -IncludeAllSubFeature
+
+Restart-Computer
+
+Get-Service IISADMIN

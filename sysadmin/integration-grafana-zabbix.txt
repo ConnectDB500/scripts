@@ -1,0 +1,16 @@
+	INTEGRATING GRAFANA WITH ZABBIX
+sudo grafana-cli plugins install alexanderzobnin-zabbix-app
+
+sudo systemctl restart grafana-server
+
+Configure the Zabbix Data Source:
+1. In the Grafana dashboard, go to Configuration > Data Sources.
+
+2. Click Add Data Source, search for Zabbix.
+
+3. Fill in the necessary details:
+    URL: http://your-zabbix-server/zabbix
+    Access: Direct (or Proxy, depending on your setup)
+    Zabbix API Details: Provide the Zabbix API credentials (typically Admin/zabbix by default).
+
+4. Create Dashboard
