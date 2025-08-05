@@ -1,0 +1,63 @@
+pipeline {
+  agent any
+
+  environment {
+    SONAR_TOKEN = credentials("sonar-token-id")
+  }
+
+  stages {
+    stage("Checkout") {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage("Build Docker Image") {
+      steps {
+        sh "docker build -t redis-app ."
+      }
+    }
+
+    stage("Start Containers") {
+      steps {
+        sh "docker-compose up -d"
+        sh "sleep 10"
+      }
+    }
+
+    stage("SonarQube Analysis") {
+      steps {
+        withSonarQubeEnv("SonarQube") {
+          sh "sonar-scanner"
+        }
+      }
+    }
+
+    stage("Quality Gate") {
+      steps {
+        timeout(time: 1, unit: "MINUTES") {
+          waitForQualityGate abortPipeline: true
+        }
+      }
+    }
+
+    stage("Tests") {
+      steps {
+        sh "npm test"
+      }
+    }
+
+    stage("Push Docker Image") {
+      steps {
+        sh "docker tag redis-app yourrepo/redis-app:latest"
+        sh "docker push yourrepo/redis-app:latest"
+      }
+    }
+
+    stage("Shutdown Containers") {
+      steps {
+        sh "docker-compose down"
+      }
+    }
+  }
+}
