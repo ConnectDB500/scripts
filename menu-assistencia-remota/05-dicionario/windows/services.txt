@@ -1,6 +1,12 @@
-Dhcp        - Cliente dhcp
-Dnscache    - Cliente dns
-mpssvc      - Windows Defender Firewall
-pla         - Logs e alertas de desempenho
-SDRSC       - Backup do Windows
-wuauserv    - Windows Update
+
+chkdsk            - Verifica e repara disco
+dism              - Ferramenta de imagem e manutencao do Windowws
+Dhcp              - Cliente dhcp
+Dnscache          - Cliente dns
+mpssvc            - Windows Defender Firewall
+msconfig          - Configuracao de inicializacao
+pla               - Logs e alertas de desempenho
+SDRSC             - Backup do Windows
+services.msc      - interface grafica para servicos
+sfc /scannow      - Verifica  repara arquivos do sistema
+wuauserv          - Windows Update

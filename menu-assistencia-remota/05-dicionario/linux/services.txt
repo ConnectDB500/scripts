@@ -1,0 +1,7 @@
+
+chroot            - Altera diretorio raiz do sistema
+fsck              - 
+gufw              - GUI para o ufw
+journalctl        - Visualiza logs do sistemd
+systemctl         - Gerencia servicos systemd
+ufw               - Firewall de linha de comando
