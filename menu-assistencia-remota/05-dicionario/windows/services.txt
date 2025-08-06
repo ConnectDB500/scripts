@@ -1,0 +1,6 @@
+Dhcp        - Cliente dhcp
+Dnscache    - Cliente dns
+mpssvc      - Windows Defender Firewall
+pla         - Logs e alertas de desempenho
+SDRSC       - Backup do Windows
+wuauserv    - Windows Update

@@ -1,0 +1,4 @@
+- Ideal para automacoes de configuracao em multiplos computadores, especialmente servidores Linux.
+- Infraestrutura como codigo. 
+- Requer configuracao previa: SSH, Ansible, inventario.
+- Escalavel, ideal para DevOps.
