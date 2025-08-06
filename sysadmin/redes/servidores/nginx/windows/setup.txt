@@ -1,0 +1,8 @@
+nginx:download
+https://nginx.org/en/download.html
+
+cd C:\servidor\nginx
+
+nginx
+
+http://localhost:8080
