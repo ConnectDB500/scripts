@@ -1,0 +1,7 @@
+Primeira interface:
+- Listar Opcoes 
+- Sair
+
+Listar Opcoes interface:
+- Windows
+- Linux

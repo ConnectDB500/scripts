@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo "atualizar todos os programas"
+echo "verificar atualizacoes do sistema"
 sudo apt update && sudo apt upgrade -y

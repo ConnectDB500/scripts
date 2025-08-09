@@ -1,7 +1,15 @@
-
+adduser           -
+build-essentials  -
 chroot            - Altera diretorio raiz do sistema
+debsums           -
 fsck              - 
 gufw              - GUI para o ufw
 journalctl        - Visualiza logs do sistemd
+hdparm            -
+htop              -
+memtester         -
+neofetch          -
+NetWorkManager    -
 systemctl         - Gerencia servicos systemd
+timeshift         -
 ufw               - Firewall de linha de comando

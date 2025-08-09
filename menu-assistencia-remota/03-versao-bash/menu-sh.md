@@ -1,1 +1,0 @@
-- Ideal para script local para maquinas Linux!

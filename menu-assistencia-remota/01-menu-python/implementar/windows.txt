@@ -1,0 +1,10 @@
+Implementar Opçoes Windows
+1. Fechar programas e processos desnecessarios
+2. Desativar programas em execucao na inicializacao
+3. Desfragmentar o disco rigido e ajustar para obter melhor desempenho
+4. Aumentar memoria virtual
+5. Desativar superfetch
+6. Desativar NDU de registro
+7. Atualizar drivers, antivirus e firewall
+8. Opcoes de energia
+9. Reiniciar o computador
