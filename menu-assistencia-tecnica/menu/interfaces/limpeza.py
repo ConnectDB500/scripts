@@ -1,10 +1,10 @@
 limpeza = {
   "1": {
-    "descricao": "Remover arquivos temporarios",
-    "linux": "linux.",
-    "windows": "windows."
+    "descricao": "1. Remover arquivos temporarios",
+    "linux": "linux.remover_arquivo_temporario",
+    "windows": "windows.remover_arquivo_temporario"
   },
   "2": {
-    "descricao": "Voltar"
+    "descricao": "2. Voltar"
   }
 }

@@ -1,44 +1,30 @@
-opcoes = [
-    "1. Checagem",
-    "2. Diagnostico & Reparo",
-    "3. Otmizacao & Manutencao",
-    "4. Limpeza & Organizacao",
-    "5. Backup & Seguranca",
-    "6. Sair"
-  ]
-
-checagem = {
+opcoes = {
   "1": {
-    "descricao": "Informacoes do sistema",
-    "linux": "linux.",
-    "windows": "windows."
+    "descricao": "1. Checagem",
+    "linux": "interfaces.linux.index.sh",
+    "windows": "interfaces.windows.index.ps1"
   },
   "2": {
-    "descricao": "Verificar conexao de redes",
-    "linux": "linux.",
-    "windows": "windows."
+    "descricao": "2. Diagnostico & Reparo",
+    "linux": "interfaces.linux.index.sh",
+    "windows": "interfaces.windows.index.ps1"
   },
   "3": {
-    "descricao": "Testar velocidade de diagnóstico",
-    "linux": "linux.",
-    "windows": "windows."
+    "descricao": "3. Otmizacao & Manutencao",
+    "linux": "interfaces.linux.index.sh",
+    "windows": "interfaces.windows.index.ps1"
   },
   "4": {
-    "descricao": "Verificar erro de memoria",
-    "linux": "linux.",
-    "windows": "windows."
+    "descricao": "4. Limpeza & Organizacao",
+    "linux": "interfaces.linux.index.sh",
+    "windows": "interfaces.windows.index.ps1"
   },
   "5": {
-    "descricao": "Verificar integridade de arquivos",
-    "linux": "linux.",
-    "windows": "windows."
+    "descricao": "5. Backup & Seguranca",
+    "linux": "interfaces.linux.index.sh",
+    "windows": "interfaces.windows.index.ps1"
   },
   "6": {
-    "descricao": "Verificar e reparar HD",
-    "linux": "linux.",
-    "windows": "windows."
-  },
-  "7": {
-    "descricao": "Voltar"
+    "descricao": "6. Voltar"
   }
 }
