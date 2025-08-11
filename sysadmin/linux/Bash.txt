@@ -1,88 +1,62 @@
-Qwiklabs assessment: Get Familiar with DNS and DHCP:
-[
-  The Scenario
-  The company that you are working for has dnsmasq set up to manage the DNS and DHCP needs of the network.
+# 1. Comando Linux:   
+# script session.log
+# O que faz: 
+# - Inicia uma gravação da sessão do terminal atual no arquivo "session.log".
+# - Tudo o que for digitado e exibido no terminal será gravado.
+# Para parar a gravação, use:   
+exit 
 
-  Currently, almost all of the DHCP range is being used to serve dynamic IPs. A number of servers will be added to the network and those should be configured with known IPs.
+# Automatizar o script no Linux ou o Start-Transcript no PowerShell para iniciar toda vez que abrir
+# o terminal.
 
-  Your task in this lab is to modify the configuration of this dnsmasq setup so that those servers always have the same IPs. To do this, not only will you need to give those servers the requested IPs, but also reduce the range for the dynamic IPs
-  
-  The Network
-  Because you follow the rule of never testing in production, you will experiment with the necessary changes in a machine that is simulating the network. You should do this instead of trying these commands out in the actual DNS server.
+# 1. Automatizar script no Linux
+# O comando script grava a sessão do terminal em um arquivo .log. Para automatizar isso, basta iniciar
+# o script automaticamente quando abrir o terminal.
+# a) Abra o terminal e digite:
+.bash
+nano -/.bashrc
 
-  In real life, after you were done experimenting you would then apply the same changes that you tried in the test instance to the production instance that is running dnsmasq on the network.
+# b) Adicione ao final:
+# Iniciar gravação da sessão automaticamente
+if [[ -z "$UNDER_SCRIPT" ]]; then
+  export UNDER_SCRIPT=1
+  script -q ~/session_$(date +%Y-%d_%H-%M-%S).log
+  exit
+# Salve com Ctrl + O, depois Enter, e saia com Ctrl + X.
+# Usando a variavel UNDER_SCRIPT impede loops infinitos.
 
-  For our test instance, we have configured a virtual network interface (called eth_srv) which the DNS and DHCP server will listen on. We can see the state of that interface with the ip command
-]
+#   Analise de Logs
+# Logs são registros automáticos de eventos que ocorrem em um sistema, aplicação, rede
+# ou dispositivo. Eles mostram o que aconteceu, quem fez e como o sistema respondeu.
 
-ip address show eth_srv
+# O que procurar nos Logs
+# Falhas de login -         ataques de força bruta, usuários inválidos
+# Erros de serviços -       quando e por que um serviço caiu
+# Erros de disco/memória -  sinais de falha de hardware
+# Logs de rede -            portas abertas, tráfego incomum
+# Atualizações -            instalações, patches aplicados, reinicializações
 
-ip address show eth_cli
+# Linux: comandos nativos para analisar Logs
+cat -             # exibe todo o conteúdo do Logs
+less/more -       # navega pelos logs página por página
+tail -            # mostras as ultimas linhas do logs
+tail -f -         # segue o log em tempo real
+grep -            # filtra o conteúdo por palavra-chave
+awk, cut, sed -   # manipulam e formatam os dados dos logs
 
+# Arquivos de Logs no Linux
+/var/log/syslog -             # logs gerais do systema
+/var/log/auth.log -           # acesso via sudo, logins e SSH
+/var/log/dmesg -              # mensagens do kernel e inicialização
+/var/log/nginx/access.log -   # acesso ao servidor web Nginx
 
-# Current configuration setup
-cat /etc/dnsmasq.d/mycompany.conf
+# Exemplos:
+# Ver os últimos 50 eventos do syslog
+tail -n 50 /var/log/syslog
 
+# Procurar por erro no syslog
+grep "error" /var/log/syslog
 
-# Enabling debug logging
-sudo service dnsmasq status
+# Filtrar logs por hora especifica
+grep "May 17 10:" /var/log/syslog
 
-sudo service dnsmasq stop
-
-sudo nano /etc/dnsmasq.d/mycompany.conf
-
-[
-  In this file, we need to add the log-queries option, and tell dnsmasq where to log.
-  - At the end of this file, add a line that contains the log-queries option.
-  - After that line, add a line that defines the log file location, like this:
-  log-queries
- 
-  log-facility=/var/log/dnsmasq.log
-]
-
-sudo dnsmasq --test -C /etc/dnsmasq.d/mycompany.conf
-
-sudo service dnsmasq start
-
-# Experimenting with DNS queries
-dig example.com @localhost
-
-sudo tail /var/log/dnsmasq.log
-
-dig example.com @localhost
- 
-
-# Experimenting with a DHCP client
-sudo dhclient -i eth_cli -v -sf /root/debug_dhcp.sh
-
-[
-  Note: The use of linux-instance instead of eth_cli is because linux-instance is the hostname of the machine, while eth_cli is the name of the network interface. In DNS, queries are made using hostnames, not interface names. The DNS system resolves hostnames like linux-instance.mycompany.local to IP addresses, which is why dig is used to query the name linux-instance instead of the network interface eth_cli.
-]
-# Changing the configuration
-sudo service dnsmasq stop
-
-sudo nano /etc/dnsmasq.d/mycompany.conf
-
-[
-  We need to change the dhcp-range option and add dhcp-host lines:
-
-  Change the dhcp-range option so that it starts with 192.168.1.20 instead of 192.168.
-  1.2
-  Change the 24h lease time to 6h
-  At the end of this file, add three dhcp-host lines, one for each of the servers that 
-  need to be configured, as defined above
-]
-
-sudo dnsmasq --test -C /etc/dnsmasq.d/mycompany.conf
-
-sudo service dnsmasq start
-
-[
-  Important: You shouldn't change the MAC address of actual machines on the network, as this could lead to many networking problems that are hard to debug. This technique can be used here because it's a testing simulation.
-]
-
-sudo ip link set eth_cli address aa:bb:cc:dd:ee:c3
-
-sudo ip address show eth_cli
-
-sudo dhclient -i eth_cli -v  -sf /root/debug_dhcp.sh

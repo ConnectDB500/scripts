@@ -28,12 +28,11 @@ interface "Diagnostico & Reparo":
 6. Voltar
 
 interface "Otimizacao & Manutencao":
-1. Desfragmentar diagnóstico
-2. Gerenciar procesos
-3. Gerenciar usuarios locais
-4. Atualizar programas
-5. Verificar atualizacoes
-6. Voltar
+1. Gerenciar procesos
+2. Gerenciar usuarios locais
+3. Atualizar programas
+4. Verificar atualizacoes
+5. Voltar
 
 interface "Limpeza":
 1. Remover arquivos temporarios

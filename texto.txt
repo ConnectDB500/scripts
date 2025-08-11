@@ -1,0 +1,35 @@
+Gostaria de recomeçar com uma explicação totalmente completa e abrangente para não gerar duvidas.
+Preciso de um codigo para o arquivo /projeto/main.py que busca o arquivo /projeto/menu/interfaces/menu.py que contem uma lista de listas:
+menu = [["1. Listar opcoes do sistema", "2. Sair"], ["1. Windows", "2. Linux", "3. Voltar"]]
+Quero que liste primeiro as opções menu[0] e depois se o usuário digitar 1 o conteudo do menu[1] será listado. Caso contrário, o programa deve ser encerrado.
+
+Eu preparei a pasta /projeto/menu/intefaces com os arquivos escritos em python que contém dicionários com as informações de descrição e rotas para os respectivos arquivos que contem o script nas pastas /projeto/windows e /projeto/linux.
+
+Preciso de um código em python para o arquivo /projeto/menu/linux/index.py. Se o usuário digitar 2 ele deve listar as opçoes do arquivo /projeto/menu/interfaces/menu_linux.py. Esse arquivo contem apenas uma lista:
+menu = ["1. Checagem", "2. Diagnostico & Reparo", "3. Otmizacao & Manutencao", "4. Limpeza & Organizacao",
+ "5. Backup & Seguranca", "6. Voltar"]
+Quero que seja exibido uma entrada de dados para o usuário poder listar as opções referentes ao numero que ele escolher. 
+
+Eu preparei a pasta /projeto/menu/linux para conter as funções que importa e executa os arquivos que correspondem as opções que o usuario digitar na interface anterior. A pasta /projeto/menu/interfaces contem os arquivos backup.py, checagem.py, diagnostico.py, limpeza.py, otimizacao.py. Cada um desses arquivos contém um dicionário com a mesma estrutura, como por exemplo:
+backup = {
+  "1": {
+    "descricao": "1. Backup de drivers",
+    "linux": "linux.backup_drivers",
+    "windows": "windows.backup_drivers"
+  },
+  "2": {
+    "descricao": "2. Criar ponto de restauracao",
+    "linux": "linux.criar_ponto_restauracao",
+    "windows": "windows.criar_ponto_restauracao"
+  },
+  "3": {
+    "descricao": "3. Ativar / Desativar firewall",
+    "linux": "linux.ativar_desativar",
+    "windows": "windows.ativar_desativar"
+  },
+  "4": {
+    "descricao": "4. Voltar"
+  }
+}
+
+Os scripts estão armazenados na pasta /projeto/linux e /projeto/windows, mas eu só quero fazer a parte do linux que já está pronta. Dessa forma eu vou poder já testar e ter uma base para construir a parte que executa os scripts para o windows sem precisar de tanta ajuda.
