@@ -1,0 +1,63 @@
+Show! Montar um cluster com TVs Box + switch gerenciÃ¡vel Ã© uma forma interessante de comeÃ§ar a criar uma infraestrutura local com mÃºltiplos nÃ³s. Apesar das limitaÃ§Ãµes de hardware (TV Boxes tÃªm CPU e armazenamento modestos, Android normalmente, etc), dÃ¡ pra fazer bastante coisa legal para aprender e atÃ© projetos leves.
+
+Aqui estÃ£o algumas ideias e possibilidades do que vocÃª pode implementar nesse cluster:
+
+O que dÃ¡ para implementar num cluster assim? 1. Servidor de Arquivos / NAS caseiro 
+
+Pode montar um sistema simples de compartilhamento de arquivos na rede local usando protocolos como Samba ou NFS.
+
+Ãštil para armazenar backups e documentos acessÃ­veis por vÃ¡rios dispositivos.
+
+2. Servidor Web / Desenvolvimento 
+
+Hospedar sites estÃ¡ticos simples ou apps web pequenos usando Nginx, Apache, ou servidores Node.js.
+
+Testar deploys e integraÃ§Ãµes contÃ­nuas.
+
+3. Docker Swarm / Kubernetes Lightweight (k3s) 
+
+Instalar um cluster Docker Swarm ou Kubernetes leve para orquestrar containers.
+
+Experimentar deploys distribuÃ­dos, balanceamento de carga e escalabilidade em pequena escala.
+
+4. Servidor de AutomaÃ§Ã£o / IoT 
+
+Rodar scripts para automaÃ§Ã£o de tarefas na rede domÃ©stica.
+
+Integrar sensores ou dispositivos IoT que se comuniquem via MQTT, HTTP, etc.
+
+5. Servidor de Streaming Local 
+
+Usar software como Plex ou Jellyfin para streaming de mÃ­dia dentro da rede.
+
+6. Proxy / Firewall / VPN 
+
+Configurar um nÃ³ para funcionar como proxy ou firewall para controlar trÃ¡fego da rede.
+
+Implementar VPN para acesso remoto seguro.
+
+7. Servidor DNS local (Pi-hole, AdGuard Home) 
+
+Bloquear anÃºncios e rastreadores na rede com DNS personalizado.
+
+8. Ambiente de Testes para DevOps 
+
+Usar o cluster para treinar deploy, automaÃ§Ã£o, monitoramento (com Zabbix, Grafana, etc).
+
+LimitaÃ§Ãµes e cuidados 
+
+Performance: TV Boxes sÃ£o limitados para carga alta e processamento pesado.
+
+Sistema operacional: Muitas TV Boxes rodam Android e podem nÃ£o suportar Linux nativamente.
+
+Rede: Use cabo Ethernet para estabilidade, especialmente com switch gerenciÃ¡vel.
+
+Armazenamento: Pode ser limitado, considere usar discos externos ou NAS dedicado.
+
+Suporte: Comunidade para clusters com TV Boxes Ã© menor que Raspberry Pi.
+
+Resumo 
+
+Um cluster de TV Boxes com switch gerenciÃ¡vel pode ser um laboratÃ³rio barato e portÃ¡til para aprender conceitos de computaÃ§Ã£o distribuÃ­da, automaÃ§Ã£o, orquestraÃ§Ã£o de containers, e muito mais. Ã‰ perfeito para projetos experimentais e para entender como montar e gerenciar infraestrutura.
+
+Se quiser, posso ajudar a criar um plano detalhado para montar esse cluster, indicar ferramentas, comandos e configuraÃ§Ãµes. Quer seguir?
