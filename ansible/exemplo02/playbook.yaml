@@ -1,0 +1,7 @@
+- name: Executar tarefas simples na maquina local
+  host: local
+  become: yes   # para usar o sudo
+  tasks:
+    - name: Atualizar cache do apt
+      apt:
+        update_cache: yes
