@@ -1,0 +1,48 @@
+# 1) Atualize o sistema primeiro
+sudo pacman -Syu
+
+# 2) Utilitários básicos
+sudo pacman -S --needed nano git neofetch  # ou fastfetch
+
+# 3) (Opcional) Editar o pacman.conf para Color/ParallelDownloads/multilib
+sudo nano /etc/pacman.conf
+
+# 4) (Opcional) Atualizar lista de mirrors (requer reflector instalado)
+# sudo pacman -S --needed reflector pacman-contrib
+# sudo reflector --country 'Brazil' --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+
+# 5) Navegador (instalar/remover)
+sudo pacman -S --needed firefox
+# Para remover:
+# sudo pacman -Rs firefox      # remove e tenta limpar dependências órfãs
+# sudo pacman -Rns firefox     # idem + configurações locais do pacote
+
+# 6) Busca por pacotes (sem sudo)
+pacman -Ss firefox
+
+# 7) Codecs multimídia (FFmpeg + GStreamer)
+sudo pacman -S --needed ffmpeg gstreamer \
+  gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav
+# (Opcional) sudo pacman -S --needed gst-plugin-pipewire
+
+# 8) Converter vídeo com FFmpeg (exemplo)
+ffmpeg -i input.mp4 output.avi
+
+# 9) Firewall (UFW) e GUI (GUFW opcional)
+sudo pacman -S --needed ufw gufw
+sudo systemctl enable --now ufw
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+# sudo ufw allow OpenSSH   # se usa SSH
+sudo ufw enable
+sudo ufw status verbose
+
+# 10) Atualização de firmware
+sudo pacman -S --needed fwupd
+sudo fwupdmgr refresh
+sudo fwupdmgr get-devices
+sudo fwupdmgr get-updates
+# sudo fwupdmgr update     # execute quando houver updates disponíveis
+
+# 11) (Opcional) NTFS
+# sudo pacman -S --needed ntfs-3g
