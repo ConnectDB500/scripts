@@ -1,0 +1,4 @@
+Usar ferramentas como stress, chaos, monkey, k6, wrk, locust para forcar CPU, RAM ou simular 
+falhas na rede. Use o tmux ou scripts engracados em shell com prints, sons engracados ou 
+animacoes ASCII. Monte joco com terminal, como scripts interativos com dialog, figlet, ou ASCII.
+

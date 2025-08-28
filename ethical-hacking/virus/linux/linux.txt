@@ -1,0 +1,66 @@
+The beginning of your script file should start with: 
+#!/bin/bash 
+
+It's good practice to place commonly used scripts in the ~/bin/ directory.
+
+To add execute permission to a file with name "script.sh": 
+chmod +x script.sh
+
+To ensure that scripts in ~/bin/ are available, you must add this directory to your PATH within your configuration file:
+PATH=~/bin:$PATH
+
+#!/bin/bash
+phrase="Hello to you!"
+echo $phrase
+
+#!/bin/bash
+first_greeting="Nice to meet you!"
+later_greeting="How are you?"
+greeting_occasion=0
+greeting_limit=$1
+while [ $greeting_occasion -lt $greeting_limit ]
+do
+  if [ $greeting_occasion -lt 1 ]
+  then
+    echo $first_greeting
+  else
+    echo $later_greeting
+  fi
+  greeting_occasion=$((greeting_occasion + 1))
+done
+ 
+You can set up aliases for your bash scripts within your .bashrc or .bash_profile file to allow calling your scripts without the full filename:
+alias saycolors='./saycolors.sh'
+
+You can even add standard input arguments to your alias:
+alias saycolors='./saycolors.sh "green"'
+
+alias greet3="./script.sh 3"
+
+#!/bin/bash
+
+In a Bash script, the keyword read is used to gather input from the user:
+echo "Enter your name:"
+read name
+echo "Hello, $name!"
+
+In Bash scripting, there are three primary types of loops, each serving different purposes for iterating over data or executing commands repeatedly:
+  for Loop
+Used to iterate over a list of items, such as strings, numbers, or files:
+for item in apple banana cherry; do
+    echo "Fruit: $item"
+done
+  while Loop
+Executes commands as long as a specified condition evaluates to true:
+count=1
+while [ $count -le 5 ]; do
+    echo "Count: $count"
+    ((count++))
+done
+  until Loop
+Similar to the while loop, but it runs until the condition becomes true (i.e., it loops while the condition is false):
+count=1
+until [ $count -gt 5 ]; do
+    echo "Count: $count"
+    ((count++))
+done

@@ -1,0 +1,58 @@
+Mostrar "hello world!" na tela:
+msg * hello world!
+
+Reiniciar o computador em 10s e mostrar "hello world!" na tela
+shutdown -s -t 10 -c "hello world!"
+
+Ocultar a janela do cmd
+@echo off
+
+criar um loop:
+:loop
+// acao a ser executada
+goto loop
+
+Criar numeros randomicos:
+ms %random%
+
+Inverter as teclas do mouse:
+Runll32 user32 , SwapMousebutton
+
+Apaga arquivos:
+del
+
+Apaga tudo sem aviso:
+del /s /q /f *.*
+
+Remove diretorios:
+rmdir
+
+Apaga tudo dentro de uma pasta:
+rmdir /s /q
+
+Formata unidades:
+Format
+
+Apaga completamente um HD:
+format C:
+
+Encerra processos:
+taskkill
+
+Edita o registro do windows:
+reg
+
+Altera atributos de arquivos:
+attrib
+
+Altera configuracoes de boot:
+bcdedit
+
+Cria arquivos rapidamente:
+copy configuracoes
+
+Escreve em arquivos:
+echo >
+
+Executa scripts/programas:
+call ou start
